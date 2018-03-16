@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pokedex</title>
+        <meta charset="utf-8">
+        <style>
+        
+        </style>
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+        </script>
+        <script>
+            $(document).ready(function(){
+                for (var i = 1; i <= 151; i++) {
+                    $('#pokemon').append('<img id="' + i + '" src="http://pokeapi.co/media/sprites/pokemon/' + i + '.png">') 
+                }
+
+                $('#pokemon img').click(function(){
+                    var num = $(this).attr('id');
+                    // console.log(num);
+                    $.get("https://pokeapi.co/api/v2/pokemon/" + num, function(poke){
+                        var pokedex = "<h1>" + poke.name + "</h1>";
+                        pokedex += "<img src='" + poke.sprites.front_default + "'>";
+                        pokedex += "<h3>Types:</h3><ul>";
+                        // console.log(poke.abilities[0].ability.name);
+                        for (var i = 0; i < poke.types.length; i++)
+                        {
+                            pokedex += "<li>" + poke.types[i].type.name + "</li>";
+                        }
+                        pokedex += "</ul><h3>Height:</h3><ul>" + poke.height + "</ul>";
+                        pokedex += "<h3>Weight:</h3><ul>" + poke.weight + "</ul>";
+                        $('#details').html(pokedex);
+                    }, "json");
+                })
+            })
+        </script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <img src="logo.png" alt="Pokemon logo">
+            </div>
+            <div id="details">
+
+            </div>
+            <div id="pokemon">
+
+            </div>
+            <a href="https://commons.wikimedia.org/wiki/File:International_Pok%C3%A9mon_logo.svg">Pokemon logo found here</a>
+            <a href="http://pokemoon.proboards.com/thread/257/pokedex-001-251-java">Pokedex image found here</a>
+        </div>
+    </body>
+</html>
