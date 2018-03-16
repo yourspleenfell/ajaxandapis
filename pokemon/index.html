@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pokemon!</title>
+        <meta charset="utf-8">
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+        </script>
+        <script>
+            function pokeSprite()
+            {
+                var sprite = [ ];
+                for (i = 0; i < 151; i++)
+                {
+                    var temp = i + 1;
+                    var pokepng = "http://pokeapi.co/media/sprites/pokemon/" + temp + ".png";
+                    sprite.push(pokepng);
+                    $('#wrapper').append('<img src="' + sprite[i] + '" alt="Pokemon">')
+                }
+            }
+            
+            $(document).ready(function(){
+                pokeSprite();
+                
+            })
+        </script>
+    </head>
+    
+    <body>
+        <div id="wrapper">
+
+        </div>
+    </body>
+</html>
