@@ -1,0 +1,14 @@
+input {
+    margin: 15px 5px 0px 0px;
+}
+#city {
+    padding: 5px;
+    font-size: 10pt;
+}
+#submit {
+    padding: 5px;
+    font-size: 10pt;
+    background: linear-gradient(#fff, #d3d3d3, #fff);
+    border-radius: 5px;
+    border: 2px onset;
+}
