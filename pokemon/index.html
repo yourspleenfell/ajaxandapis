@@ -9,21 +9,10 @@
         crossorigin="anonymous">
         </script>
         <script>
-            function pokeSprite()
-            {
-                var sprite = [ ];
-                for (i = 0; i < 151; i++)
-                {
-                    var temp = i + 1;
-                    var pokepng = "http://pokeapi.co/media/sprites/pokemon/" + temp + ".png";
-                    sprite.push(pokepng);
-                    $('#wrapper').append('<img src="' + sprite[i] + '" alt="Pokemon">')
-                }
-            }
-            
             $(document).ready(function(){
-                pokeSprite();
-                
+                for (var i = 1; i <= 151; i++) {
+                    $('#wrapper').append(`<img class= "${i}" src="http://pokeapi.co/media/sprites/pokemon/${i}.png">`) 
+                }
             })
         </script>
     </head>

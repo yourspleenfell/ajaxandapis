@@ -14,8 +14,8 @@
                 $('form').submit(function() {
                     var city = $('#city').val();
                     $.get("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=d3450e97fe923250651edebb796f6294", function(res){
-                        console.log(res.main.temp);
-                        var weather = `<h1>${city}</h1>
+                        console.log(res.sys.country);
+                        var weather = `<h1>${city}, ${res.sys.country}</h1>
                                         <p>Temperature: ${res.main.temp}&deg;</p>
                                         <p>Description: ${res.weather[0].main}</p>`;
                         $('#weather').html(weather);
